@@ -1,11 +1,11 @@
 <?php  
 /*
  * Plugin Name: Custom Recent Posts
- * Plugin URI:  http://ideachipper.com/
+ * Plugin URI:  https://github.com/AlexandrKharchenko/Extend-Custom-recent-posts
  * Description: Выводит недавние записи указанного типа
- * Version: 1.0.1
- * Author: Ideachipper.com
- * Author URI:  http://ideachipper.com/
+ * Version: 1.0.2
+ * Author: Alexandr Kharchenko 
+ * Author URI:  https://www.linkedin.com/in/alexandr-kharchenko/
  * License: GPL2 
 
     Copyright 2017  Alexandr Kharchenko
@@ -55,7 +55,7 @@ class AT_recent_posts extends WP_Widget {
 		// Widget options
 		$title 	 = apply_filters('widget_title', $instance['title'] ); // Title		
 		$AT 	 = $instance['types']; // Post type(s) 		
-	    $types   = explode(',', $AT); // Let's turn this into an array we can work with.
+	    	$types   = explode(',', $AT); // Let's turn this into an array we can work with.
 		$number	 = $instance['number']; // Number of posts to show
 		
         
@@ -67,9 +67,9 @@ class AT_recent_posts extends WP_Widget {
 				'showposts' => $number,
 				'post__not_in' => [$post->ID]
 		]); 
-		
-		 //get_template_part( 'template-parts/recent-item');
-		 include(locate_template($instance['tpl_path']));
+		// Template for display
+		// trmplates in page template-parts !
+		include(locate_template($instance['tpl_path']));
 		
 		
 		
